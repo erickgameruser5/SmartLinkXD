@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links a mis canales XD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #f0f0f0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #333333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        h1 {
+            color: #f0f000;
+        }
+        p {
+            color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+        .link {
+            display: block;
+            margin: 10px 0;
+            padding: 15px;
+            background: #f0f000;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .link:hover {
+            background: #e0e000;
+            transform: scale(1.05);
+        }
+        .link-icon {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .footer {
+            margin-top: 30px;
+        }
+        .footer img {
+            width: 500px;
+            transition: opacity 2s ease-in-out, transform 0.5s;
+            cursor: pointer;
+        }
+        .footer img.fade-out {
+            opacity: 0;
+        }
+        .footer img.tremble {
+            animation: tremble 0.5s infinite;
+        }
+        @keyframes tremble {
+            0% { transform: translateX(-2px); }
+            25% { transform: translateX(2px); }
+            50% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+            100% { transform: translateX(-2px); }
+        }
+        .footer p {
+            display: none;
+            color: #f0f000;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .footer p.show {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Hola! Soy Erick GamerCraft</h1>
+        <p>Un apasionado creador de contenido enfocado en un universo gacha lleno de superhéroes, ciencia ficción y magia. Aunque soy un youtuber pequeño, sueño con llegar a la fama y compartir mis historias con el mundo. En mi canal encontrarás aventuras como gachatuber, emocionantes gameplays, y puede que en un futuro, animaciones 3D. ¡Bienvenido a mi mundo lleno de creatividad y diversión! OwO</p>
+        <a href="https://x.com/YtGachagam52815" class="link">Twitter/X</a>
+        <a href="https://www.youtube.com/channel/UCmBzFRcAh4v9aTIpAtjr03Q" class="link">YouTube</a>
+        <a href="https://www.tiktok.com/@erick_tiktoker_5" class="link">TikTok</a>
+    </div>
+    <div class="footer">
+        <img id="mascot" src="vivo.png" alt="Mascota">
+        <p id="message">NOOOO, LO MATASTE!!! 😨😭😭😭</p>
+        <audio id="audio" src="frijolero.mp3"></audio>
+    </div>
+
+    <script>
+        const mascot = document.getElementById('mascot');
+        const audio = document.getElementById('audio');
+        const message = document.getElementById('message');
+        const originalTitle = document.title;
+        let clicked = false;
+        let audioPlaying = false;
+
+        mascot.addEventListener('click', () => {
+            if (!clicked) {
+                mascot.classList.add('fade-out');
+                setTimeout(() => {
+                    mascot.src = 'muerto.png';
+                    message.classList.add('show');
+                    mascot.classList.remove('fade-out');
+                    audio.play();
+                    audioPlaying = true;
+                }, 2000); // Intervalo de desaparición de 2 segundos
+                clicked = true;
+            } else {
+                if (audioPlaying) {
+                    mascot.classList.add('tremble');
+                    setTimeout(() => {
+                        mascot.classList.remove('tremble');
+                    }, 500); // Duración de la animación de temblor
+                    setTimeout(() => {
+                        audio.pause();
+                        audio.currentTime = 0;
+                        audioPlaying = false;
+                    }, 8000); // La canción dura 8 segundos
+                }
+            }
+        });
+
+        // Cambiar el título de la pestaña cuando el usuario cambia de pestaña
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                document.title = 'REGRESA!!! >:v';
+            } else {
+                document.title = originalTitle;
+            }
+        });
+    </script>
+</body>
+</html>
